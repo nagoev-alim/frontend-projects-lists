@@ -1,0 +1,77 @@
+/* Базовые стили для body */
+body {
+    -webkit-font-smoothing: antialiased; /* Сглаживание шрифтов для WebKit */
+    line-height: 1.5; /* Межстрочный интервал */
+}
+
+/* Подключение Tailwind CSS */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Класс для визуально скрытых элементов (доступность) */
+.visually-hidden {
+    border: 0;
+    clip: rect(0, 0, 0, 0);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    white-space: nowrap;
+    width: 1px;
+}
+
+/* Отключение событий указателя для SVG */
+svg {
+    pointer-events: none;
+}
+
+/* Скрытие стрелок для числовых input'ов в WebKit браузерах */
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+/* Дополнительные стили */
+.too-weak {
+    --color: #fb3c3c;
+}
+
+.too-weak li:nth-child(1) {
+    background-color: var(--color);
+    border-color: var(--color);
+}
+
+.too-weak span {
+    color: var(--color);
+}
+
+.medium {
+    --color: #1b6aa5;
+}
+
+.medium li:nth-child(1),
+.medium li:nth-child(2),
+.medium li:nth-child(3) {
+    background-color: var(--color);
+    border-color: var(--color);
+}
+
+.medium span {
+    color: var(--color);
+}
+
+.strong {
+    --color: #9abf1a;
+}
+
+.strong li {
+    background-color: var(--color);
+    border-color: var(--color);
+}
+
+.strong span {
+    color: var(--color);
+}

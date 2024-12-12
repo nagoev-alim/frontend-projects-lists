@@ -1,0 +1,184 @@
+/* Базовые стили для body */
+body {
+    -webkit-font-smoothing: antialiased; /* Сглаживание шрифтов для WebKit */
+    line-height: 1.5; /* Межстрочный интервал */
+}
+
+/* Подключение Tailwind CSS */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Класс для визуально скрытых элементов (доступность) */
+.visually-hidden {
+    border: 0;
+    clip: rect(0, 0, 0, 0);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    white-space: nowrap;
+    width: 1px;
+}
+
+/* Отключение событий указателя для SVG */
+svg {
+    pointer-events: none;
+}
+
+/* Скрытие стрелок для числовых input'ов в WebKit браузерах */
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+/* Дополнительные стили */
+.root {
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.05),
+    0 25px 35px rgba(0, 0, 0, 0.03);
+    max-width: 800px;
+    min-height: 370px;
+    overflow: hidden;
+    padding: 10px;
+    position: relative;
+    width: 100%;
+}
+
+@media (min-width: 576px) {
+    .root {
+        align-items: flex-start;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+.root .overlay {
+    background-color: #fff;
+    bottom: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    left: 0;
+    opacity: 0;
+    padding: 10px;
+    pointer-events: none;
+    position: absolute;
+    right: 0;
+    top: 0;
+    transition: all 0.25s ease;
+    visibility: hidden;
+    z-index: 2;
+}
+
+.root .overlay.visible {
+    opacity: 1;
+    pointer-events: auto;
+    visibility: visible;
+}
+
+.root .overlay button {
+    margin-top: auto;
+}
+
+h3 {
+    text-transform: uppercase;
+}
+
+.dice {
+    border: 1px solid rgba(0, 0, 0, 0.15);
+    border-radius: 10px;
+    margin-inline: auto;
+    max-width: 90px;
+}
+
+@media (min-width: 576px) {
+    .dice {
+        max-width: 120px;
+    }
+}
+
+.column {
+    padding: 10px;
+}
+
+.column--player {
+    border: 3px solid rgba(0, 0, 0, 0.25);
+    border-radius: 10px;
+    display: grid;
+    gap: 10px;
+    text-align: center;
+    transition: all 0.25s ease;
+}
+
+@media (min-width: 576px) {
+    .column--player {
+        align-items: center;
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+    }
+}
+
+.column--player .current {
+    background-color: #fff;
+    border: 3px solid rgba(0, 0, 0, 0.25);
+    border-radius: 10px;
+    display: grid;
+    gap: 10px;
+    margin-inline: auto;
+    padding: 20px 10px;
+    width: 100%;
+}
+
+@media (min-width: 576px) {
+    .column--player .current {
+        margin-top: auto;
+    }
+}
+
+.column--player .current__label {
+    font-weight: 400;
+}
+
+.column--player.active {
+    border-color: #ffb6b9;
+}
+
+.column--player.active .current {
+    border-color: #ffb6b9;
+}
+
+.column--player.winner {
+    border-color: #9dd3a8;
+}
+
+.column--player.winner .current {
+    border-color: #9dd3a8;
+}
+
+.column--buttons {
+    display: grid;
+    gap: 10px;
+}
+
+@media (min-width: 576px) {
+    .column--buttons {
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+    }
+}
+
+.column--buttons .buttons {
+    display: grid;
+    gap: 10px;
+    margin-top: auto;
+}
+
+.column--buttons button {
+    width: 100%;
+}

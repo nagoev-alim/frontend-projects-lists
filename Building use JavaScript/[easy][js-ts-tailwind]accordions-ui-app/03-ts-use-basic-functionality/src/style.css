@@ -1,0 +1,135 @@
+/* Базовые стили для body */
+body {
+    -webkit-font-smoothing: antialiased; /* Сглаживание шрифтов для WebKit */
+    line-height: 1.5; /* Межстрочный интервал */
+}
+
+/* Подключение Tailwind CSS */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Класс для визуально скрытых элементов (доступность) */
+.visually-hidden {
+    border: 0;
+    clip: rect(0, 0, 0, 0);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    white-space: nowrap;
+    width: 1px;
+}
+
+/* Отключение событий указателя для SVG */
+svg {
+    pointer-events: none;
+}
+
+/* Скрытие стрелок для числовых input'ов в WebKit браузерах */
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+/* Дополнительные стили */
+:root {
+    --gap: 15px;
+    --bcp-blue: #443df6;
+    --bcs-grey-3: #efefef;
+}
+
+.accordion {
+    align-items: flex-start;
+    display: grid;
+    gap: var(--gap);
+    max-width: 900px;
+    width: 100%;
+}
+
+@media (min-width: 1400px) {
+    .accordion {
+        grid-template-columns: repeat(2, 1fr);
+        max-width: 1400px;
+    }
+}
+
+.accordion .column {
+    display: grid;
+    gap: var(--gap);
+}
+
+.accordion .title {
+    text-align: center;
+}
+
+.accordion .title + p {
+    align-items: center;
+    background-color: var(--bcs-grey-3);
+    border-radius: 8px;
+    display: inline-flex;
+    gap: 10px;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: max-content;
+    padding: 6px 12px;
+    text-align: center;
+}
+
+.accordion .title + p svg {
+    stroke: #443df6;
+}
+
+.accordion__item {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.05),
+    0 25px 35px rgba(0, 0, 0, 0.03);
+    display: grid;
+    gap: var(--gap);
+    padding: var(--gap);
+}
+
+.accordion__container {
+    border: 1px solid rgba(32, 72, 79, 0.1);
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.accordion__container.open .accordion__header {
+    background-color: var(--bcs-grey-3);
+}
+
+.accordion__header {
+    align-items: center;
+    border-bottom: 1px solid rgba(32, 72, 79, 0.1);
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    min-height: 60px;
+    padding: var(--gap);
+    transition: all 0.25s ease;
+}
+
+.accordion__header:hover {
+    background-color: var(--bcs-grey-3);
+}
+
+.accordion__header > * {
+    pointer-events: none;
+}
+
+.accordion__header div {
+    display: flex;
+}
+
+.accordion__body {
+    display: grid;
+    gap: 5px;
+    height: 0;
+    padding-left: var(--gap);
+    padding-right: var(--gap);
+    transition: all 0.25s linear;
+}

@@ -1,0 +1,68 @@
+
+body {
+    -webkit-font-smoothing: antialiased;
+    line-height: 1.5;
+}
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.visually-hidden {
+    border: 0;
+    clip: rect(0, 0, 0, 0);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    white-space: nowrap;
+    width: 1px;
+}
+
+svg {
+    pointer-events: none;
+}
+
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+@layer components {
+    body {
+        @apply dark:text-white dark:bg-neutral-600 dark:border-b-neutral-800 transition-colors
+    }
+
+    .button {
+        @apply font-medium
+        px-3 py-2
+        border-2 rounded
+        bg-white hover:bg-neutral-300
+        transition-colors
+        dark:bg-neutral-700 dark:text-white dark:hover:bg-neutral-800 dark:border-neutral-800
+    }
+
+    .input {
+        @apply px-3 py-2
+        w-full
+        border-2 rounded
+        bg-slate-50
+        focus:outline-none focus:border-blue-400
+        transition-colors
+        dark:bg-neutral-700 dark:text-white dark:hover:bg-neutral-800 dark:border-neutral-800
+    }
+
+    .header {
+        @apply bg-white border-b-2 p-3 dark:text-white dark:bg-neutral-600 dark:border-b-neutral-800 transition-colors
+    }
+
+    .nav {
+        @apply max-w-6xl w-full mx-auto px-2 flex justify-center items-center gap-2
+    }
+
+    .box {
+        @apply p-4 border-2 rounded shadow bg-white dark:bg-neutral-600 dark:border-neutral-800 transition-colors
+    }
+}

@@ -1,0 +1,310 @@
+/* Подключение Tailwind CSS */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Глобальные переменные */
+:root {
+    /* Colors */
+    --bcp-grey: #1B2124;
+    --bcs-grey-2: #CCCCCC;
+    --fld-chbx-bg: #3B4256;
+    --fld-chbx-bdrs: 3px;
+}
+
+/* Базовые стили */
+body {
+    -webkit-font-smoothing: antialiased; /* Сглаживание шрифтов для WebKit */
+    line-height: 1.5; /* Межстрочный интервал */
+}
+
+/* Отключение событий указателя для SVG */
+svg {
+    pointer-events: none;
+}
+
+/* Утилитарные классы */
+.visually-hidden {
+    border: 0;
+    clip: rect(0, 0, 0, 0);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    white-space: nowrap;
+    width: 1px;
+}
+
+/* Стили для форм */
+/* Скрытие стрелок для числовых input'ов в WebKit браузерах */
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+/* Стили для range input */
+.range {
+    all: revert;
+    width: 100%;
+    cursor: pointer;
+    -webkit-appearance: none;
+    appearance: none;
+    height: 8px;
+    border-radius: 4px;
+    background: var(--bcs-grey-2);
+    outline: none;
+    opacity: 0.7;
+    transition: opacity .2s;
+}
+
+.range:hover {
+    opacity: 1;
+}
+
+.range::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 15px;
+    height: 15px;
+    background-color: var(--bcp-grey);
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.range::-moz-range-thumb {
+    width: 15px;
+    height: 15px;
+    background-color: var(--bcp-grey);
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+/* Стили для чекбоксов и радио кнопок */
+.checkbox,
+.radio {
+    width: 24px;
+    height: 24px;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    border: 3px solid var(--fld-chbx-bg);
+    border-radius: var(--fld-chbx-bdrs);
+}
+
+.radio {
+    border-radius: 50%;
+    outline: 3px solid var(--fld-chbx-bg);
+    border: 3px solid #fff;
+    background: #fff;
+}
+
+input[type="checkbox"]:checked + .checkbox {
+    background-color: var(--fld-chbx-bg);
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' fill='none' stroke='%23fff' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' %3E%3Cpath d='M20 6 9 17l-5-5'/%3E%3C/svg%3E");
+    background-position: center;
+}
+
+input[type="radio"]:checked + .radio {
+    background: var(--fld-chbx-bg);
+    border-color: #FFF;
+    outline-color: var(--fld-chbx-bg);
+}
+
+input[type="checkbox"]:focus-within + .checkbox {
+    outline: 3px solid #E2E7ED;
+}
+
+/* Скрытие стрелок для числовых input'ов в WebKit браузерах */
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+/* Дополнительные стили */
+.t-notifications {
+    --success: 10, 191, 48;
+    --error: 226, 77, 76;
+    --info: 52, 152, 219;
+    --warning: 233, 189, 12;
+    --gap: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.05),
+    0 25px 35px rgba(0, 0, 0, 0.03);
+    display: grid;
+    gap: var(--gap);
+    max-width: max-content;
+    padding: 20px;
+    width: 100%;
+}
+
+.t-notifications .title {
+    text-align: center;
+}
+
+.t-notifications__buttons {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.t-notifications .button {
+    color: #fff;
+}
+
+.t-notifications .button--success {
+    background-color: rgb(var(--success));
+}
+
+.t-notifications .button--success:hover {
+    background-color: rgba(var(--success), 0.8);
+}
+
+.t-notifications .button--error {
+    background-color: rgb(var(--error));
+}
+
+.t-notifications .button--error:hover {
+    background-color: rgba(var(--error), 0.8);
+}
+
+.t-notifications .button--warning {
+    background-color: rgb(var(--warning));
+}
+
+.t-notifications .button--warning:hover {
+    background-color: rgba(var(--warning), 0.8);
+}
+
+.t-notifications .button--info {
+    background-color: rgb(var(--info));
+}
+
+.t-notifications .button--info:hover {
+    background-color: rgba(var(--info), 0.6);
+}
+
+.t-notifications ul {
+    --right: 20px;
+    display: grid;
+    gap: 10px;
+    position: fixed;
+    right: var(--right);
+    top: 30px;
+}
+
+.t-notifications ul li {
+    align-items: center;
+    animation: showToast 0.3s ease forwards;
+    background: #fff;
+    border-radius: 4px;
+    box-shadow: 0 0 3px 2px rgb(0 0 0 / 10%);
+    display: flex;
+    gap: 10px;
+    max-width: 400px;
+    overflow: hidden;
+    padding: 16px 17px;
+    position: relative;
+    width: 100%;
+}
+
+.t-notifications ul li button {
+    border: 0;
+    padding: 4px;
+}
+
+.t-notifications ul li::before {
+    animation: progress 5s linear forwards;
+    bottom: 0;
+    content: "";
+    height: 3px;
+    left: 0;
+    position: absolute;
+    width: 100%;
+}
+
+.t-notifications ul li.success i:nth-child(1) {
+    color: rgb(var(--success));
+}
+
+.t-notifications ul li.success::before {
+    background-color: rgb(var(--success));
+}
+
+.t-notifications ul li.error i:nth-child(1) {
+    color: rgb(var(--error));
+}
+
+.t-notifications ul li.error::before {
+    background-color: rgb(var(--error));
+}
+
+.t-notifications ul li.warning i:nth-child(1) {
+    color: rgb(var(--warning));
+}
+
+.t-notifications ul li.warning::before {
+    background-color: rgb(var(--warning));
+}
+
+.t-notifications ul li.info i:nth-child(1) {
+    color: rgb(var(--info));
+}
+
+.t-notifications ul li.info::before {
+    background-color: rgb(var(--info));
+}
+
+.t-notifications ul li.hide {
+    animation: hideToast 0.3s ease forwards;
+}
+
+@keyframes showToast {
+    0% {
+        transform: translateX(100%);
+    }
+    40% {
+        transform: translateX(-5%);
+    }
+    80% {
+        transform: translateX(0%);
+    }
+    100% {
+        transform: translateX(-10px);
+    }
+}
+
+@keyframes hideToast {
+    0% {
+        transform: translateX(-10px);
+    }
+    40% {
+        transform: translateX(0%);
+    }
+    80% {
+        transform: translateX(-5%);
+    }
+    100% {
+        transform: translateX(calc(100% + 20px));
+    }
+}
+
+@keyframes progress {
+    100% {
+        width: 0;
+    }
+}
+
+@media (min-width: 576px) {
+    .t-notifications__buttons {
+        flex-direction: row;
+    }
+
+    .t-notifications .button {
+        max-width: max-content;
+    }
+}

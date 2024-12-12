@@ -1,0 +1,273 @@
+/* Подключение Tailwind CSS */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Глобальные переменные */
+:root {
+    /* Colors */
+    --bcp-grey: #1B2124;
+    --bcs-grey-2: #CCCCCC;
+    --fld-chbx-bg: #3B4256;
+    --fld-chbx-bdrs: 3px;
+}
+
+/* Базовые стили */
+body {
+    -webkit-font-smoothing: antialiased; /* Сглаживание шрифтов для WebKit */
+    line-height: 1.5; /* Межстрочный интервал */
+}
+
+/* Отключение событий указателя для SVG */
+svg {
+    pointer-events: none;
+}
+
+/* Утилитарные классы */
+.visually-hidden {
+    border: 0;
+    clip: rect(0, 0, 0, 0);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    white-space: nowrap;
+    width: 1px;
+}
+
+/* Стили для форм */
+/* Скрытие стрелок для числовых input'ов в WebKit браузерах */
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+/* Стили для range input */
+.range {
+    all: revert;
+    width: 100%;
+    cursor: pointer;
+    -webkit-appearance: none;
+    appearance: none;
+    height: 8px;
+    border-radius: 4px;
+    background: var(--bcs-grey-2);
+    outline: none;
+    opacity: 0.7;
+    transition: opacity .2s;
+}
+
+.range:hover {
+    opacity: 1;
+}
+
+.range::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 15px;
+    height: 15px;
+    background-color: var(--bcp-grey);
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.range::-moz-range-thumb {
+    width: 15px;
+    height: 15px;
+    background-color: var(--bcp-grey);
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+/* Стили для чекбоксов и радио кнопок */
+.checkbox,
+.radio {
+    width: 24px;
+    height: 24px;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    border: 3px solid var(--fld-chbx-bg);
+    border-radius: var(--fld-chbx-bdrs);
+}
+
+.radio {
+    border-radius: 50%;
+    outline: 3px solid var(--fld-chbx-bg);
+    border: 3px solid #fff;
+    background: #fff;
+}
+
+input[type="checkbox"]:checked + .checkbox {
+    background-color: var(--fld-chbx-bg);
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' fill='none' stroke='%23fff' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' %3E%3Cpath d='M20 6 9 17l-5-5'/%3E%3C/svg%3E");
+    background-position: center;
+}
+
+input[type="radio"]:checked + .radio {
+    background: var(--fld-chbx-bg);
+    border-color: #FFF;
+    outline-color: var(--fld-chbx-bg);
+}
+
+input[type="checkbox"]:focus-within + .checkbox {
+    outline: 3px solid #E2E7ED;
+}
+
+/* Скрытие стрелок для числовых input'ов в WebKit браузерах */
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+/* Дополнительные стили */
+.root {
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.05),
+    0 25px 35px rgba(0, 0, 0, 0.03);
+    max-width: 800px;
+    min-height: 370px;
+    overflow: hidden;
+    padding: 10px;
+    position: relative;
+    width: 100%;
+}
+
+@media (min-width: 576px) {
+    .root {
+        align-items: flex-start;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+.root .overlay {
+    background-color: #fff;
+    bottom: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    left: 0;
+    opacity: 0;
+    padding: 10px;
+    pointer-events: none;
+    position: absolute;
+    right: 0;
+    top: 0;
+    transition: all 0.25s ease;
+    visibility: hidden;
+    z-index: 2;
+}
+
+.root .overlay.visible {
+    opacity: 1;
+    pointer-events: auto;
+    visibility: visible;
+}
+
+.root .overlay button {
+    margin-top: auto;
+}
+
+h3 {
+    text-transform: uppercase;
+}
+
+.dice {
+    border: 1px solid rgba(0, 0, 0, 0.15);
+    border-radius: 10px;
+    margin-inline: auto;
+    max-width: 90px;
+}
+
+@media (min-width: 576px) {
+    .dice {
+        max-width: 120px;
+    }
+}
+
+.column {
+    padding: 10px;
+}
+
+.column--player {
+    border: 3px solid rgba(0, 0, 0, 0.25);
+    border-radius: 10px;
+    display: grid;
+    gap: 10px;
+    text-align: center;
+    transition: all 0.25s ease;
+}
+
+@media (min-width: 576px) {
+    .column--player {
+        align-items: center;
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+    }
+}
+
+.column--player .current {
+    background-color: #fff;
+    border: 3px solid rgba(0, 0, 0, 0.25);
+    border-radius: 10px;
+    display: grid;
+    gap: 10px;
+    margin-inline: auto;
+    padding: 20px 10px;
+    width: 100%;
+}
+
+@media (min-width: 576px) {
+    .column--player .current {
+        margin-top: auto;
+    }
+}
+
+.column--player .current__label {
+    font-weight: 400;
+}
+
+.column--player.active {
+    border-color: #ffb6b9;
+}
+
+.column--player.active .current {
+    border-color: #ffb6b9;
+}
+
+.column--player.winner {
+    border-color: #9dd3a8;
+}
+
+.column--player.winner .current {
+    border-color: #9dd3a8;
+}
+
+.column--buttons {
+    display: grid;
+    gap: 10px;
+}
+
+@media (min-width: 576px) {
+    .column--buttons {
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+    }
+}
+
+.column--buttons .buttons {
+    display: grid;
+    gap: 10px;
+    margin-top: auto;
+}
+
+.column--buttons button {
+    width: 100%;
+}

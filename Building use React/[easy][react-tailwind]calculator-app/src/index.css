@@ -1,0 +1,208 @@
+/* Подключение Tailwind CSS */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Глобальные переменные */
+:root {
+    /* Colors */
+    --bcp-grey: #1B2124;
+    --bcs-grey-2: #CCCCCC;
+    --fld-chbx-bg: #3B4256;
+    --fld-chbx-bdrs: 3px;
+}
+
+/* Базовые стили */
+body {
+    -webkit-font-smoothing: antialiased; /* Сглаживание шрифтов для WebKit */
+    line-height: 1.5; /* Межстрочный интервал */
+}
+
+/* Отключение событий указателя для SVG */
+svg {
+    pointer-events: none;
+}
+
+/* Утилитарные классы */
+.visually-hidden {
+    border: 0;
+    clip: rect(0, 0, 0, 0);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    white-space: nowrap;
+    width: 1px;
+}
+
+/* Стили для форм */
+/* Скрытие стрелок для числовых input'ов в WebKit браузерах */
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+/* Стили для range input */
+.range {
+    all: revert;
+    width: 100%;
+    cursor: pointer;
+    -webkit-appearance: none;
+    appearance: none;
+    height: 8px;
+    border-radius: 4px;
+    background: var(--bcs-grey-2);
+    outline: none;
+    opacity: 0.7;
+    transition: opacity .2s;
+}
+
+.range:hover {
+    opacity: 1;
+}
+
+.range::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 15px;
+    height: 15px;
+    background-color: var(--bcp-grey);
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.range::-moz-range-thumb {
+    width: 15px;
+    height: 15px;
+    background-color: var(--bcp-grey);
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+/* Стили для чекбоксов и радио кнопок */
+.checkbox,
+.radio {
+    width: 24px;
+    height: 24px;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    border: 3px solid var(--fld-chbx-bg);
+    border-radius: var(--fld-chbx-bdrs);
+}
+
+.radio {
+    border-radius: 50%;
+    outline: 3px solid var(--fld-chbx-bg);
+    border: 3px solid #fff;
+    background: #fff;
+}
+
+input[type="checkbox"]:checked + .checkbox {
+    background-color: var(--fld-chbx-bg);
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' fill='none' stroke='%23fff' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' %3E%3Cpath d='M20 6 9 17l-5-5'/%3E%3C/svg%3E");
+    background-position: center;
+}
+
+input[type="radio"]:checked + .radio {
+    background: var(--fld-chbx-bg);
+    border-color: #FFF;
+    outline-color: var(--fld-chbx-bg);
+}
+
+input[type="checkbox"]:focus-within + .checkbox {
+    outline: 3px solid #E2E7ED;
+}
+
+/* Скрытие стрелок для числовых input'ов в WebKit браузерах */
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+/* Дополнительные стили */
+:root {
+    /* Colors */
+    --bcp-grey: #1b2124;
+    --bcs-grey-3: #efefef;
+
+    /* Viewport */
+    --maximumViewportWidth: 1240;
+    --gap: 15px;
+}
+
+.calculator {
+    display: grid;
+    gap: var(--gap);
+    width: 100%;
+    margin: auto;
+    background-color: #fff;
+    box-shadow:
+            0 0 5px rgba(0, 0, 0, 0.05),
+            0 25px 35px rgba(0, 0, 0, 0.03);
+    border-radius: 8px;
+    padding: 20px;
+    text-align: center;
+    max-width: 400px;
+}
+
+.calculator .container {
+    display: grid;
+    gap: var(--gap);
+}
+
+.calculator .display {
+    display: flex;
+    background-color: var(--bcp-grey);
+    color: #fff;
+    justify-content: flex-end;
+    border-radius: 4px;
+}
+
+.calculator .display span {
+    overflow-x: auto;
+    max-width: 350px;
+    padding: 10px;
+    font-weight: 500;
+}
+
+.calculator .body {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: var(--gap);
+}
+
+.calculator .body button {
+    height: calc(
+            60px + (70 - 60) * ((100vw - 300px) / (var(--maximumViewportWidth) - 300))
+    );
+    font-size: calc(
+            20px + (30 - 20) * ((100vw - 300px) / (var(--maximumViewportWidth) - 300))
+    );
+    transition: all 0.25s ease;
+    border: 1px solid rgba(204, 204, 204, 0.61);
+}
+
+.calculator .body button:active {
+    transform: scale(0.95);
+}
+
+.calculator .operator {
+    background-color: var(--bcs-grey-3);
+}
+
+.calculator button.equal {
+    grid-column: 4/-1;
+    grid-row: 2/6;
+    height: 100%;
+    color: #fff;
+    background-color: #8bc24c;
+}
+
+.calculator .clear {
+    color: #fff;
+    background-color: #e41749;
+}

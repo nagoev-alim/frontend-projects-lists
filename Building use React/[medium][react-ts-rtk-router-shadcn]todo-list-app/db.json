@@ -1,0 +1,22 @@
+{
+  "todos": [
+    {
+      "id": "4cd5",
+      "title": "1112222",
+      "description": "11111222",
+      "category": "personal",
+      "date": "2024-12-08T21:00:00.000Z",
+      "color": "#fb4141",
+      "completed": true
+    },
+    {
+      "id": "a720",
+      "title": "22222",
+      "description": "222222",
+      "category": "shopping",
+      "date": "2024-12-12T14:04:01.276Z",
+      "color": "#222222",
+      "completed": false
+    }
+  ]
+}

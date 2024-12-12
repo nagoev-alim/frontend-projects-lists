@@ -1,0 +1,221 @@
+/* Базовые стили для body */
+body {
+    -webkit-font-smoothing: antialiased; /* Сглаживание шрифтов для WebKit */
+    line-height: 1.5; /* Межстрочный интервал */
+}
+
+/* Подключение Tailwind CSS */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Класс для визуально скрытых элементов (доступность) */
+.visually-hidden {
+    border: 0;
+    clip: rect(0, 0, 0, 0);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    white-space: nowrap;
+    width: 1px;
+}
+
+/* Отключение событий указателя для SVG */
+svg {
+    pointer-events: none;
+}
+
+/* Скрытие стрелок для числовых input'ов в WebKit браузерах */
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+/* Дополнительные стили */
+.t-notifications {
+    --success: 10, 191, 48;
+    --error: 226, 77, 76;
+    --info: 52, 152, 219;
+    --warning: 233, 189, 12;
+    --gap: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.05),
+    0 25px 35px rgba(0, 0, 0, 0.03);
+    display: grid;
+    gap: var(--gap);
+    max-width: max-content;
+    padding: 20px;
+    width: 100%;
+}
+
+.t-notifications .title {
+    text-align: center;
+}
+
+.t-notifications__buttons {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.t-notifications .button {
+    color: #fff;
+}
+
+.t-notifications .button--success {
+    background-color: rgb(var(--success));
+}
+
+.t-notifications .button--success:hover {
+    background-color: rgba(var(--success), 0.8);
+}
+
+.t-notifications .button--error {
+    background-color: rgb(var(--error));
+}
+
+.t-notifications .button--error:hover {
+    background-color: rgba(var(--error), 0.8);
+}
+
+.t-notifications .button--warning {
+    background-color: rgb(var(--warning));
+}
+
+.t-notifications .button--warning:hover {
+    background-color: rgba(var(--warning), 0.8);
+}
+
+.t-notifications .button--info {
+    background-color: rgb(var(--info));
+}
+
+.t-notifications .button--info:hover {
+    background-color: rgba(var(--info), 0.6);
+}
+
+.t-notifications ul {
+    --right: 20px;
+    display: grid;
+    gap: 10px;
+    position: fixed;
+    right: var(--right);
+    top: 30px;
+}
+
+.t-notifications ul li {
+    align-items: center;
+    animation: showToast 0.3s ease forwards;
+    background: #fff;
+    border-radius: 4px;
+    box-shadow: 0 0 3px 2px rgb(0 0 0 / 10%);
+    display: flex;
+    gap: 10px;
+    max-width: 400px;
+    overflow: hidden;
+    padding: 16px 17px;
+    position: relative;
+    width: 100%;
+}
+
+.t-notifications ul li button {
+    border: 0;
+    padding: 4px;
+}
+
+.t-notifications ul li::before {
+    animation: progress 5s linear forwards;
+    bottom: 0;
+    content: "";
+    height: 3px;
+    left: 0;
+    position: absolute;
+    width: 100%;
+}
+
+.t-notifications ul li.success i:nth-child(1) {
+    color: rgb(var(--success));
+}
+
+.t-notifications ul li.success::before {
+    background-color: rgb(var(--success));
+}
+
+.t-notifications ul li.error i:nth-child(1) {
+    color: rgb(var(--error));
+}
+
+.t-notifications ul li.error::before {
+    background-color: rgb(var(--error));
+}
+
+.t-notifications ul li.warning i:nth-child(1) {
+    color: rgb(var(--warning));
+}
+
+.t-notifications ul li.warning::before {
+    background-color: rgb(var(--warning));
+}
+
+.t-notifications ul li.info i:nth-child(1) {
+    color: rgb(var(--info));
+}
+
+.t-notifications ul li.info::before {
+    background-color: rgb(var(--info));
+}
+
+.t-notifications ul li.hide {
+    animation: hideToast 0.3s ease forwards;
+}
+
+@keyframes showToast {
+    0% {
+        transform: translateX(100%);
+    }
+    40% {
+        transform: translateX(-5%);
+    }
+    80% {
+        transform: translateX(0%);
+    }
+    100% {
+        transform: translateX(-10px);
+    }
+}
+
+@keyframes hideToast {
+    0% {
+        transform: translateX(-10px);
+    }
+    40% {
+        transform: translateX(0%);
+    }
+    80% {
+        transform: translateX(-5%);
+    }
+    100% {
+        transform: translateX(calc(100% + 20px));
+    }
+}
+
+@keyframes progress {
+    100% {
+        width: 0;
+    }
+}
+
+@media (min-width: 576px) {
+    .t-notifications__buttons {
+        flex-direction: row;
+    }
+
+    .t-notifications .button {
+        max-width: max-content;
+    }
+}
