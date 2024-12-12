@@ -1,0 +1,102 @@
+/* Базовые стили для body */
+body {
+    -webkit-font-smoothing: antialiased; /* Сглаживание шрифтов для WebKit */
+    line-height: 1.5; /* Межстрочный интервал */
+}
+
+/* Подключение Tailwind CSS */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Класс для визуально скрытых элементов (доступность) */
+.visually-hidden {
+    border: 0;
+    clip: rect(0, 0, 0, 0);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    white-space: nowrap;
+    width: 1px;
+}
+
+/* Отключение событий указателя для SVG */
+svg {
+    pointer-events: none;
+}
+
+/* Скрытие стрелок для числовых input'ов в WebKit браузерах */
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+/* Дополнительные стили */
+.component01 .dropdown {
+    --gap: 8px;
+    --radius: 5px;
+    position: relative;
+}
+
+.component01 .dropdown__trigger {
+    align-items: center;
+    background-color: #fff;
+    border-radius: var(--radius);
+    box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 10px 0px,
+    rgba(0, 0, 0, 0.1) 0px 0px 0px 1px;
+    cursor: pointer;
+    display: inline-flex;
+    gap: var(--gap);
+    justify-content: center;
+    padding: var(--gap);
+}
+
+.component01 .dropdown__trigger > * {
+    pointer-events: none;
+}
+
+.component01 .dropdown__trigger .arrow {
+    transform: rotate(180deg);
+    transition: 0.2s ease;
+}
+
+.component01 .dropdown__list {
+    background-color: #fff;
+    border-radius: var(--radius);
+    box-shadow: rgba(0, 0, 0, 0.05) 0 6px 10px 0px,
+    rgba(0, 0, 0, 0.1) 0px 0px 0px 1px;
+    margin-top: 10px;
+    opacity: 0;
+    position: absolute;
+    transform: translateY(0.5rem);
+    transition: all 0.1s cubic-bezier(0.16, 1, 0.5, 1);
+    visibility: hidden;
+    width: 250px;
+}
+
+.component01 .dropdown__link {
+    align-items: center;
+    color: #000;
+    column-gap: var(--gap);
+    display: flex;
+    padding: 10px;
+    text-decoration: none;
+}
+
+.component01 .dropdown__link:hover {
+    background-color: #166e67;
+    color: white;
+}
+
+.component01 .bx {
+    font-size: 18px;
+}
+
+.component01 .show {
+    opacity: 1;
+    transform: translateY(0rem);
+    visibility: visible;
+}

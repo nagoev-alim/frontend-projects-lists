@@ -1,0 +1,87 @@
+/* Базовые стили для body */
+body {
+    -webkit-font-smoothing: antialiased; /* Сглаживание шрифтов для WebKit */
+    line-height: 1.5; /* Межстрочный интервал */
+}
+
+/* Подключение Tailwind CSS */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Класс для визуально скрытых элементов (доступность) */
+.visually-hidden {
+    border: 0;
+    clip: rect(0, 0, 0, 0);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    white-space: nowrap;
+    width: 1px;
+}
+
+/* Отключение событий указателя для SVG */
+svg {
+    pointer-events: none;
+}
+
+/* Скрытие стрелок для числовых input'ов в WebKit браузерах */
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+/* Дополнительные стили */
+:root {
+    --maximumViewportWidth: 1240;
+    --gap: 15px;
+}
+
+.drum-kit {
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.05),
+    0 25px 35px rgba(0, 0, 0, 0.03);
+    max-width: 1200px;
+    width: 100%;
+    display: grid;
+    gap: var(--gap);
+}
+
+.drum-kit ul {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: var(--gap);
+}
+
+.drum-kit li {
+    --size: calc(
+            200px + (250 - 200) *
+            ((100vw - 300px) / (var(--maximumViewportWidth) - 300))
+    );
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.05),
+    0 25px 35px rgba(0, 0, 0, 0.03);
+    height: var(--size);
+    width: var(--size);
+    padding: 10px;
+    border-radius: 6px;
+    background-repeat: no-repeat;
+    background-size: 140px;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: calc(
+            30px + (60 - 30) * ((100vw - 300px) / (var(--maximumViewportWidth) - 300))
+    );
+    text-transform: uppercase;
+    font-weight: 700;
+    color: #da0463;
+    text-shadow: 3px 0 #dbedf3;
+    cursor: pointer;
+}

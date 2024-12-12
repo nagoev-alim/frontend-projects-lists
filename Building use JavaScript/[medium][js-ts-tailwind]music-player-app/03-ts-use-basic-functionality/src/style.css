@@ -1,0 +1,237 @@
+/* Базовые стили для body */
+body {
+    -webkit-font-smoothing: antialiased; /* Сглаживание шрифтов для WebKit */
+    line-height: 1.5; /* Межстрочный интервал */
+}
+
+/* Подключение Tailwind CSS */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Класс для визуально скрытых элементов (доступность) */
+.visually-hidden {
+    border: 0;
+    clip: rect(0, 0, 0, 0);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    white-space: nowrap;
+    width: 1px;
+}
+
+/* Отключение событий указателя для SVG */
+svg {
+    pointer-events: none;
+}
+
+/* Скрытие стрелок для числовых input'ов в WebKit браузерах */
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+/* Дополнительные стили */
+:root {
+    --bcp-grey: #1B2124;
+    --bcs-grey-3: #EFEFEF;
+    --gap: 15px;
+    --white: #ffffff;
+}
+
+.player {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.05), 0 25px 35px rgba(0, 0, 0, 0.03);
+    display: grid;
+    gap: var(--gap);
+    margin: auto;
+    max-width: 380px;
+    padding: 20px;
+    position: relative;
+    text-align: center;
+    width: 100%;
+}
+
+.player .top-line {
+    align-items: center;
+    display: flex;
+    gap: var(--gap);
+    justify-content: space-between;
+}
+
+.player .top-line svg {
+    cursor: pointer;
+}
+
+.player .cover {
+    border-radius: 15px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.05), 0 25px 35px rgba(0, 0, 0, 0.03);
+    height: 296px;
+    overflow: hidden;
+    width: 100%;
+}
+
+.player .cover img {
+    height: 100%;
+    object-fit: cover;
+    width: 100%;
+}
+
+.player .details {
+    display: grid;
+    gap: 5px;
+}
+
+.player .details p {
+    font-weight: 400;
+}
+
+.player .details p:nth-of-type(1) {
+    font-weight: 500;
+}
+
+.player .progress {
+    background-color: var(--bcs-grey-3);
+    border-radius: 50px;
+    cursor: pointer;
+    display: grid;
+    gap: 5px;
+    height: 6px;
+    width: 100%;
+}
+
+.player .progress > * {
+    pointer-events: none;
+}
+
+.player .progress:hover .progress__bar::before {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.player .progress__bar {
+    background-color: var(--bcp-grey);
+    border-radius: inherit;
+    height: inherit;
+    position: relative;
+    width: 0%;
+}
+
+.player .progress__bar::before {
+    background-color: inherit;
+    border-radius: 50%;
+    content: "";
+    height: var(--gap);
+    opacity: 0;
+    pointer-events: none;
+    position: absolute;
+    right: -7px;
+    top: 50%;
+    transform: translateY(-50%);
+    transition: opacity 0.2s ease;
+    width: var(--gap);
+    z-index: 2;
+}
+
+.player .timer {
+    align-items: center;
+    display: flex;
+    gap: var(--gap);
+    justify-content: space-between;
+}
+
+.player .controls {
+    align-items: center;
+    display: flex;
+    gap: var(--gap);
+    margin-top: 20px;
+}
+
+.player .controls button {
+    padding: 4px;
+}
+
+.player .controls [data-back] {
+    margin-left: auto;
+}
+
+.player .controls [data-forward] {
+    margin-right: auto;
+}
+
+.player .controls svg {
+    pointer-events: none;
+}
+
+.player .list {
+    background: var(--white);
+    background-color: #fff;
+    border-radius: 14px;
+    bottom: -400px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.15), 0 25px 35px rgba(0, 0, 0, 0.03);
+    left: 0;
+    opacity: 0;
+    padding: 20px;
+    pointer-events: none;
+    position: absolute;
+    right: 0;
+    transition: all 0.15s ease-out;
+    width: 100%;
+    z-index: 5;
+}
+
+.player .list.open {
+    bottom: 0;
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.player .list .header {
+    align-items: center;
+    display: flex;
+    gap: 10px;
+}
+
+.player .list .header button {
+    border: 0;
+    margin-left: auto;
+    padding: 4px;
+}
+
+.player .list .header svg:nth-child(1) {
+    width: 20px;
+}
+
+.player .list ul {
+    margin: 10px 0;
+    max-height: 260px;
+    overflow: auto;
+}
+
+.player .list ul li {
+    align-items: center;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.15);
+    cursor: pointer;
+    display: flex;
+    gap: var(--gap);
+    justify-content: space-between;
+    padding: 10px 0;
+    text-align: left;
+}
+
+.player .list ul li > * {
+    pointer-events: none;
+}
+
+.player .list ul li:last-child {
+    border-bottom: 0;
+}
+
+.player .list ul li div {
+    display: grid;
+    gap: 5px;
+}

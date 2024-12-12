@@ -1,0 +1,89 @@
+/**
+ * @fileoverview Модуль с данными о музыкальных треках
+ * 
+ * Этот модуль содержит импорты изображений и аудиофайлов для музыкальных треков,
+ * а также экспортирует массив объектов с информацией о каждом треке.
+ */
+
+// Импорты изображений
+import music01Img from '/images/music-1.jpg';
+import music02Img from '/images/music-2.jpg';
+import music03Img from '/images/music-3.jpg';
+import music04Img from '/images/music-4.jpg';
+import music05Img from '/images/music-5.jpg';
+import music06Img from '/images/music-6.jpg';
+import music07Img from '/images/music-7.jpg';
+
+// Импорты аудиофайлов
+import music01Audio from '/songs/music-1.mp3';
+import music02Audio from '/songs/music-2.mp3';
+import music03Audio from '/songs/music-3.mp3';
+import music04Audio from '/songs/music-4.mp3';
+import music05Audio from '/songs/music-5.mp3';
+import music06Audio from '/songs/music-6.mp3';
+import music07Audio from '/songs/music-7.mp3';
+
+/**
+ * Интерфейс, описывающий структуру объекта музыкального трека
+ */
+interface MusicTrack {
+  /** Название трека */
+  name: string;
+  /** Имя исполнителя */
+  artist: string;
+  /** URL изображения обложки */
+  img: string;
+  /** URL аудиофайла */
+  src: string;
+}
+
+/**
+ * Массив объектов с информацией о музыкальных треках
+ * @type {MusicTrack[]}
+ */
+const musicTracks: MusicTrack[] = [
+  {
+    name: 'Blackbird - Shake Shake Go',
+    artist: 'Shake Shake Go',
+    img: music01Img,
+    src: music01Audio,
+  },
+  {
+    name: '6LACK - Free',
+    artist: '6LACK',
+    img: music02Img,
+    src: music02Audio,
+  },
+  {
+    name: 'Sleep Alone - 18',
+    artist: 'Moby',
+    img: music03Img,
+    src: music03Audio,
+  },
+  {
+    name: 'The Sky Is Broken - Play',
+    artist: 'Moby',
+    img: music04Img,
+    src: music04Audio,
+  },
+  {
+    name: 'Animals - Animals',
+    artist: 'Deaf Radio',
+    img: music05Img,
+    src: music05Audio,
+  },
+  {
+    name: 'Run - Final Straw',
+    artist: 'Snow Patrol',
+    img: music06Img,
+    src: music06Audio,
+  },
+  {
+    name: 'Wake Me When It\'s Over - In the End',
+    artist: 'The Cranberries',
+    img: music07Img,
+    src: music07Audio,
+  },
+];
+
+export default musicTracks;

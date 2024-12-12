@@ -1,0 +1,113 @@
+/* Базовые стили для body */
+body {
+    -webkit-font-smoothing: antialiased; /* Сглаживание шрифтов для WebKit */
+    line-height: 1.5; /* Межстрочный интервал */
+}
+
+/* Подключение Tailwind CSS */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Класс для визуально скрытых элементов (доступность) */
+.visually-hidden {
+    border: 0;
+    clip: rect(0, 0, 0, 0);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    white-space: nowrap;
+    width: 1px;
+}
+
+/* Отключение событий указателя для SVG */
+svg {
+    pointer-events: none;
+}
+
+/* Скрытие стрелок для числовых input'ов в WebKit браузерах */
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+/* Дополнительные стили */
+
+.rating01 {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.05),
+    0 25px 35px rgba(0, 0, 0, 0.03);
+    display: grid;
+    gap: 15px;
+    margin: 0 auto;
+    max-width: 600px;
+    padding: 20px;
+    width: 100%;
+}
+
+.rating01 header {
+    display: grid;
+    gap: 15px;
+}
+
+.rating01 table,
+.rating01 table th,
+.rating01 table td {
+    border: 2px solid;
+}
+
+.rating01 td,
+.rating01 th {
+    padding: 15px;
+}
+
+.rating01 th {
+    font-weight: 700;
+}
+
+.rating01 .stars-outer {
+    display: inline-block;
+    position: relative;
+}
+
+.rating01 .stars-outer::before {
+    color: #ccc;
+    content: "\f005 \f005 \f005 \f005 \f005";
+    font-family: "Font Awesome 6 Free";
+    font-weight: 900;
+}
+
+.rating01 .stars-inner {
+    left: 0;
+    overflow: hidden;
+    position: absolute;
+    top: 0;
+    white-space: nowrap;
+    width: 0;
+}
+
+.rating01 .stars-inner::before {
+    color: #f8ce0b;
+    content: "\f005 \f005 \f005 \f005 \f005";
+    font-family: "Font Awesome 6 Free";
+    font-weight: 900;
+}
+
+.rating02 {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.05),
+    0 25px 35px rgba(0, 0, 0, 0.03);
+    display: grid;
+    gap: 15px;
+    justify-content: center;
+    justify-items: center;
+    margin: 0 auto;
+    max-width: 600px;
+    padding: 20px;
+    width: 100%;
+}

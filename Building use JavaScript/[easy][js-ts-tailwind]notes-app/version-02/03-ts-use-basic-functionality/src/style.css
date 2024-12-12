@@ -1,0 +1,144 @@
+/* Базовые стили для body */
+body {
+    -webkit-font-smoothing: antialiased; /* Сглаживание шрифтов для WebKit */
+    line-height: 1.5; /* Межстрочный интервал */
+}
+
+/* Подключение Tailwind CSS */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Класс для визуально скрытых элементов (доступность) */
+.visually-hidden {
+    border: 0;
+    clip: rect(0, 0, 0, 0);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    white-space: nowrap;
+    width: 1px;
+}
+
+/* Отключение событий указателя для SVG */
+svg {
+    pointer-events: none;
+}
+
+/* Скрытие стрелок для числовых input'ов в WebKit браузерах */
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+/* Дополнительные стили */
+:root {
+    --bcp-grey: #1B2124;
+    --bcs-grey-3: #EFEFEF;
+}
+
+.price-slider {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.05), 0 25px 35px rgba(0, 0, 0, 0.03);
+    display: grid;
+    gap: var(--gap);
+    max-width: 600px;
+    padding: 20px;
+    text-align: center;
+    width: 100%;
+}
+
+.price-slider div {
+    display: grid;
+    gap: 10px;
+}
+
+@media (min-width: 576px) {
+    .price-slider div {
+        align-items: center;
+        gap: 10px;
+        grid-template-columns: 1fr 20px 1fr;
+    }
+}
+
+@media (min-width: 576px) {
+    .price-slider div label {
+        align-items: center;
+        grid-template-columns: 50px 1fr;
+    }
+}
+
+.price-slider div label span {
+    color: var(--bcp-grey);
+    font-weight: var(--fw-600);
+    text-align: left;
+}
+
+.price-slider div .separator {
+    background-color: var(--bcp-grey);
+    display: none;
+    height: 3px;
+    width: 15px;
+}
+
+@media (min-width: 576px) {
+    .price-slider div .separator {
+        display: block;
+    }
+}
+
+.price-slider .slider {
+    background-color: var(--bcs-grey-3);
+    border-radius: 5px;
+    height: 5px;
+    position: relative;
+    margin-top: 20px;
+}
+
+.price-slider .slider__progress {
+    background-color: var(--bcp-grey);
+    border-radius: 5px;
+    height: 5px;
+    left: 18%;
+    position: absolute;
+    right: 22%;
+}
+
+.price-slider .ranges {
+    position: relative;
+}
+
+.price-slider .ranges__input {
+    -webkit-appearance: none;
+    background: none;
+    border: 0;
+    height: 5px;
+    padding: 0;
+    pointer-events: none;
+    position: absolute;
+    top: -5px;
+    width: 100%;
+}
+
+.price-slider .ranges__input::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    background: var(--bcp-grey);
+    border-radius: 50%;
+    height: 17px;
+    pointer-events: auto;
+    width: 17px;
+}
+
+.price-slider .ranges__input::-moz-range-thumb {
+    -moz-appearance: none;
+    background: var(--bcp-grey);
+    border: none;
+    border-radius: 50%;
+    height: 17px;
+    pointer-events: auto;
+    width: 17px;
+}

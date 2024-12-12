@@ -1,0 +1,87 @@
+/* Базовые стили для body */
+body {
+    -webkit-font-smoothing: antialiased; /* Сглаживание шрифтов для WebKit */
+    line-height: 1.5; /* Межстрочный интервал */
+}
+
+/* Подключение Tailwind CSS */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Класс для визуально скрытых элементов (доступность) */
+.visually-hidden {
+    border: 0;
+    clip: rect(0, 0, 0, 0);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    white-space: nowrap;
+    width: 1px;
+}
+
+/* Отключение событий указателя для SVG */
+svg {
+    pointer-events: none;
+}
+
+/* Скрытие стрелок для числовых input'ов в WebKit браузерах */
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+/* Дополнительные стили */
+:root {
+    /* Colors */
+    --bcp-grey: #1B2124;
+    --bcs-grey-1: #8D9091;
+    --bcs-grey-2: #CCCCCC;
+    --bct-sunny: #FFD965;
+    --gap: 15px;
+
+    /* Viewport */
+    --maximumViewportWidth: 1240;
+}
+
+.seat {
+    width: 20px;
+    height: 20px;
+    border: 2px solid;
+    background-color: var(--bcp-grey);
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    cursor: pointer;
+}
+
+.seat.selected {
+    background-color: var(--bct-sunny);
+}
+
+.seat.occupied {
+    background-color: #fff;
+}
+
+button.seat {
+    padding: 0;
+    background-color: var(--bcp-grey);
+    border-radius: 10px 10px 0 0;
+}
+
+.screen {
+    max-width: 285px;
+    width: 100%;
+    height: 100px;
+    border: 3px solid;
+    background-color: var(--bcs-grey-2);
+    color: var(--bcs-grey-1);
+    position: relative;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: calc(25px + (35 - 25) * ((100vw - 300px) / (var(--maximumViewportWidth) - 300)));
+}
