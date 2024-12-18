@@ -13,7 +13,7 @@ const DetailPage = () => {
 
   const handleGoBack = useCallback(() => navigate(-1), [navigate]);
 
-  if (!cocktail) return <p className="text-red-500 dark:text-red-400">Ошибка при загрузке коктейля</p>;
+  if (!cocktail) return <p className="text-red-500 dark:text-red-400">Error loading cocktail</p>;
 
   // eslint-disable-next-line react-hooks/rules-of-hooks
   const ingredients = useMemo(() => {

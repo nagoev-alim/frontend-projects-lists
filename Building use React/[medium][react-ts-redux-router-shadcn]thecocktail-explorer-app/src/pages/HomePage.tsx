@@ -27,7 +27,6 @@ const HomePage = () => {
   const dispatch = useDispatch<AppDispatch>();
   const randomDrinks = useSelector(drinksSlice.selectors.getRandomDrinks);
   const searchResults = useSelector(drinksSlice.selectors.getSearchResults);
-  console.log(randomDrinks);
   const form = useForm<FormSchemaType>({
     resolver: zodResolver(FormSchema),
     defaultValues: {
