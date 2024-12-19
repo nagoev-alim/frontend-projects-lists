@@ -1,0 +1,43 @@
+{
+  "files": [],
+  "references": [
+    {
+      "path": "./tsconfig.app.json"
+    },
+    {
+      "path": "./tsconfig.node.json"
+    }
+  ],
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "@/*": [
+        "src/*"
+      ],
+      "@components/*": [
+        "src/components/*"
+      ],
+      "@components/ui/*": [
+        "src/components/ui/*"
+      ],
+      "@components/layout/*": [
+        "src/components/layout/*"
+      ],
+      "@pages/*": [
+        "src/pages/*"
+      ],
+      "@helpers/*": [
+        "src/helpers/*"
+      ],
+      "@features/*": [
+        "src/features/*"
+      ],
+      "@hooks/*": [
+        "src/hooks/*"
+      ],
+      "@app/*": [
+        "src/app/*"
+      ]
+    }
+  }
+}
